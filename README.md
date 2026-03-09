@@ -103,8 +103,3 @@ Plugin folder: `plugins/GeoCompass/`
 - Better stats commands (top / inspect)
 - Optional SQLite storage backend
 
----
-
-## License
-
-Please add a `LICENSE` file if you want open-source distribution (for example MIT).
