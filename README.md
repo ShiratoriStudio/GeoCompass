@@ -17,15 +17,12 @@ It provides two core features:
 - Dimension/world-based target mineral config
 - First-discovery broadcast + reward commands
 - `lang.yml` language support
-- bStats integration
-
 ---
 
 ## Requirements
 
 - **Java:** 17+
 - **Server:** Paper / Purpur (API 1.20.1)
-- **Build tool:** Maven 3.8+
 
 ---
 
