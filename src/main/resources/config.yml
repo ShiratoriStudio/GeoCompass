@@ -1,0 +1,252 @@
+# ============================================================
+# GeoCompass Configuration
+# Target API: 1.20.1 (Designed to run on 1.20.1 ~ 1.21.8)
+# ============================================================
+
+
+# ------------------------------------------------------------
+# Item settings for the custom GeoCompass item.
+# ------------------------------------------------------------
+item:
+  # Display name of the GeoCompass item.
+  # Supports color codes with '&' (e.g. &6, &a, &7).
+  name: "&6GeoCompass"
+
+  # Lore lines shown on the item tooltip.
+  # Supports color codes with '&'.
+  lore:
+    - "&7Right-click to survey nearby blocks"
+    - "&7Hold it to track rare minerals"
+
+  # Custom model data for resource packs.
+  # Set to 0 to disable custom model data.
+  custom-model-data: 0
+
+  # Energy system for balancing scan usage.
+  energy:
+    # Maximum energy stored in a newly created compass.
+    max: 100
+    # Energy cost of one right-click survey.
+    survey-cost: 1
+    # Lore line prefix for dynamic energy display.
+    # Final rendered format: <prefix><current>/<max>
+    lore-prefix: "&7Energy: "
+
+# ------------------------------------------------------------
+# Crafting recipe settings.
+# ------------------------------------------------------------
+crafting:
+  # Enable or disable the custom crafting recipe.
+  enabled: true
+
+  # 3x3 crafting shape. Each character maps to an ingredient key.
+  shape:
+    - "IGI"
+    - "RCR"
+    - "IGI"
+
+  # Ingredient key mapping for the shape above.
+  # Use valid Bukkit Material names.
+  ingredients:
+    I: "IRON_INGOT"
+    G: "GOLD_INGOT"
+    C: "COMPASS"
+    R: "REDSTONE"
+
+# ------------------------------------------------------------
+# Right-click survey settings.
+# ------------------------------------------------------------
+survey:
+  # Chunk radius around the player to scan.
+  # Allowed range in code: 0~4. (0 = current chunk only, 1 = 3x3 chunks)
+  radius: 1
+
+  # Cooldown in seconds between surveys.
+  cooldown: 10
+
+  # How survey result is displayed.
+  # Valid values: CHAT, ACTIONBAR, BOSSBAR
+  display-mode: "BOSSBAR"
+
+  # Maximum number of block types shown in the survey result.
+  max-results: 3
+
+  # Survey result cache TTL in milliseconds.
+  # Same area + same probe set within this window returns cached result.
+  cache-ttl-ms: 30000
+
+  # Block whitelist for survey counting.
+  # Only these blocks are counted in the survey result.
+  # If this list is empty or all invalid, plugin falls back to built-in defaults.
+  probe-blocks:
+    - "IRON_ORE"
+    - "DEEPSLATE_IRON_ORE"
+    - "COAL_ORE"
+    - "DEEPSLATE_COAL_ORE"
+    - "COPPER_ORE"
+    - "DEEPSLATE_COPPER_ORE"
+    - "GOLD_ORE"
+    - "DEEPSLATE_GOLD_ORE"
+    - "REDSTONE_ORE"
+    - "DEEPSLATE_REDSTONE_ORE"
+    - "LAPIS_ORE"
+    - "DEEPSLATE_LAPIS_ORE"
+    - "DIAMOND_ORE"
+    - "DEEPSLATE_DIAMOND_ORE"
+    - "EMERALD_ORE"
+    - "DEEPSLATE_EMERALD_ORE"
+    - "ANCIENT_DEBRIS"
+    - "NETHER_GOLD_ORE"
+    - "NETHER_QUARTZ_ORE"
+    - "STONE"
+    - "DEEPSLATE"
+    - "GRANITE"
+    - "DIORITE"
+    - "ANDESITE"
+    - "DIRT"
+    - "NETHERRACK"
+    - "END_STONE"
+
+  # BossBar display settings for survey output.
+  bossbar:
+    # How long to keep the survey BossBar visible (in ticks).
+    # 20 ticks = 1 second.
+    duration-ticks: 80
+
+    # BossBar color.
+    # Common values: PINK, BLUE, RED, GREEN, YELLOW, PURPLE, WHITE
+    color: "BLUE"
+
+    # BossBar overlay style.
+    # Valid values: PROGRESS, NOTCHED_6, NOTCHED_10, NOTCHED_12, NOTCHED_20
+    overlay: "PROGRESS"
+
+# ------------------------------------------------------------
+# Rare mineral tracking settings.
+# ------------------------------------------------------------
+tracking:
+  # Enable or disable passive rare mineral tracking.
+  enabled: true
+
+  # Tracking check interval in ticks.
+  # 20 ticks = 1 second.
+  check-interval: 20
+
+  # Max players processed per tracking tick (frame budget).
+  players-per-tick: 5
+
+  # Cache scan result for the same player grid position (milliseconds).
+  scan-cache-ms: 1500
+
+  # Player position grid size for tracking cache.
+  cache-grid-size: 4
+
+  # Detection range in blocks.
+  range: 15
+
+  # How long tracking remains valid after a successful detection (seconds).
+  # Used by first-discovery checks.
+  recent-valid-seconds: 30
+
+  # Sound settings.
+  sounds:
+    # Sound played when a target is first detected.
+    # Uses Bukkit Sound enum name.
+    found: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+  # Tracking UI display settings.
+  display:
+    # Valid values: ACTIONBAR, BOSSBAR, TITLE
+    mode: "BOSSBAR"
+
+  # Sampling controls for chunk snapshot scanning.
+  # Larger steps = better performance, less accuracy.
+  sampling:
+    step-xz: 2
+    step-y: 2
+
+  # Global fallback mineral list.
+  # Used when no world-specific or dimension-default list applies.
+  minerals:
+    - "DIAMOND_ORE"
+    - "DEEPSLATE_DIAMOND_ORE"
+    - "ANCIENT_DEBRIS"
+    - "EMERALD_ORE"
+
+  # Customizable direction labels shown in tracking text.
+  # You can localize these to any language.
+  direction-labels:
+    north: "North"
+    south: "South"
+    east: "East"
+    west: "West"
+
+  # Dimension default mineral templates.
+  # Used when a world has no custom minerals in worlds.world-minerals.
+  dimension-defaults:
+    # Overworld default targets.
+    overworld:
+      - "DIAMOND_ORE"
+      - "DEEPSLATE_DIAMOND_ORE"
+      - "EMERALD_ORE"
+      - "DEEPSLATE_EMERALD_ORE"
+
+    # Nether default targets.
+    nether:
+      - "ANCIENT_DEBRIS"
+      - "NETHER_GOLD_ORE"
+      - "NETHER_QUARTZ_ORE"
+
+    # End default targets.
+    end:
+      - "END_STONE"
+
+# ------------------------------------------------------------
+# Server-wide announcement settings.
+# ------------------------------------------------------------
+announcements:
+  first-discovery:
+    # Enable first-discovery announcements.
+    enabled: true
+
+    # Reward commands executed as console when discovery is announced.
+    # Placeholders: %player%, %ore%, %x%, %y%, %z%
+    reward-commands: []
+
+  # If true, a player can trigger repeated discovery announcements
+  # for the same ore type. If false, only first time per player+ore.
+  repeat-discovery: false
+
+# ------------------------------------------------------------
+# Multi-world control.
+# ------------------------------------------------------------
+worlds:
+  # Allowed worlds for tracking.
+  # Empty list means all worlds are allowed.
+  enabled-worlds: []
+
+  # Per-world mineral overrides for tracking.
+  # Format:
+  # world-minerals:
+  #   world:
+  #     - "DIAMOND_ORE"
+  #   world_nether:
+  #     - "ANCIENT_DEBRIS"
+  world-minerals: {}
+
+# ------------------------------------------------------------
+# Compatibility and fallback behavior notes.
+# ------------------------------------------------------------
+compatibility:
+  # API baseline used during development.
+  target-api: "1.20.1"
+
+  # Intended supported runtime range.
+  supported-range: "1.20.1-1.21.8"
+
+  fallback:
+    # Ignore unknown material names instead of throwing errors.
+    unknown-material-ignore: true
+
+    # Silently skip invalid sound if fallback also fails.
+    unknown-sound-silent: true

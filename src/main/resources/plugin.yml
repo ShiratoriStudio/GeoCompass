@@ -1,0 +1,26 @@
+name: GeoCompass
+main: com.Shiratori.GeoCompass.GeoCompassPlugin
+version: 1.0.0
+api-version: '1.20'
+authors: [Shiratori]
+commands:
+  geocompass:
+    aliases: [gc]
+    description: GeoCompass main command
+    usage: /gc <give|reload|stats|gui>
+permissions:
+  geocompass.use:
+    description: Allow using GeoCompass
+    default: true
+  geocompass.craft:
+    description: Allow crafting GeoCompass
+    default: true
+  geocompass.bypass.cooldown:
+    description: Bypass survey cooldown
+    default: op
+  geocompass.admin.reload:
+    description: Reload plugin config
+    default: op
+  geocompass.admin.give:
+    description: Give geocompass item
+    default: op

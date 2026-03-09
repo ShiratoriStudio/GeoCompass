@@ -1,0 +1,34 @@
+command:
+  help: "&6GeoCompass &7- Subcommands: give, reload, stats, gui"
+  unknown-sub: "&cUnknown subcommand. Available: give, reload, stats, gui"
+  give-usage: "&eUsage: /gc give <player> [amount]"
+  give-success: "&aGave %player% x%amount% GeoCompass."
+  reload-success: "&aGeoCompass config and language files reloaded."
+  stats-console-usage: "&eConsole usage: /gc stats <player>"
+  stats-result: "&aPlayer %player%'s first rare discovery count: &e%count%"
+  player-only: "&cThis command can only be used by a player."
+
+error:
+  no-permission: "&cYou do not have permission."
+  player-offline: "&cPlayer is not online."
+  amount-number: "&cAmount must be a number."
+
+survey:
+  cooldown: "&cGeoCompass is cooling down. %seconds%s remaining."
+  world-unavailable: "&cSurvey failed: world is unavailable."
+  no-data: "&eNo valid survey data detected (chunk unloaded or filtered out)."
+  result: "&aNearby block distribution: %items%"
+
+tracking:
+  found: "&aTarget: %target% &7| &aDirection: %direction% &7| &aDistance: %distance% blocks"
+  no-targets: "&eNo available tracking targets in this world."
+  gui-title: "GeoCompass Targets"
+  gui-auto: "&aAuto Target Mode"
+  target-auto-selected: "&aTracking target set to auto mode."
+  target-selected: "&aTracking target set to: &e%target%"
+
+item:
+  energy-not-enough: "&cNot enough compass energy. Current: %current%, Required: %cost%"
+
+announcement:
+  first-discovery: "&6Congrats &e%player%&6! Using GeoCompass, they discovered the first %ore% at &b%x% %y% %z%&6!"
